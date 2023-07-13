@@ -22,6 +22,7 @@
 
 import './commands'
 import './add_Customer_commands'
+import './payment_gateway_commands'
 Cypress.on('uncaught:exception', (error) => {
 	console.error(error)
 	return false

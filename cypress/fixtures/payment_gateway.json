@@ -1,0 +1,16 @@
+{
+	"mastercard": {
+		"Card_Number": "4053737710139754",
+		"Expiration_Month": "04",
+		"Expiration_Year": "2027",
+		"CVV": "729",
+		"Balance": "100$"},
+
+	"AmEx":{
+		"Card_Number": "371738276958416",
+		"Expiration_Month": "01",
+		"Expiration_Year": "2026",
+		"CVV": "9707",
+		"Balance": "100$"}
+
+}
