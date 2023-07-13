@@ -2,7 +2,7 @@ Cypress.config('defaultCommandTimeout', 100000);
 
 describe('Guru99 login page', () =>{
 	it('Checking navigation elements', () => {
-		cy.log('Checking Selenium dropdowns');
+		cy.log('Checking navigation elements');
 		cy.visit('https://demo.guru99.com/Agile_Project/Agi_V1/index.php',);
 
 		cy.getNavigationElement('Agile Project', 
@@ -16,8 +16,9 @@ describe('Guru99 login page', () =>{
 		cy.getNavigationElement('Payment Gateway Project', 
 			'https://demo.guru99.com/payment-gateway/index.php');	
 		cy.getNavigationElement('New Tours', 
-			'https://demo.guru99.com/test/newtours/');			
-		
+			'https://demo.guru99.com/test/newtours/');	
+
+		cy.log('Checking Selenium dropdowns');				
 		cy.getDropdownElement('Selenium ', 'Table Demo', 
 			'https://demo.guru99.com/test/table.html');
 		cy.getDropdownElement('Selenium ', 'Radio & Checkbox Demo', 
@@ -57,6 +58,8 @@ describe('Guru99 login page', () =>{
 		cy.getDropdownElement('Selenium ', 'Selenium DatePicker Demo', 
 			'https://demo.guru99.com/test/')
 
+
+		cy.log('Checking SEO dropdowns');
 		cy.getDropdownElement('SEO', 'Page-1', 
 			'https://demo.guru99.com/seo/page-1.html')
 		cy.getDropdownElement('SEO', 'Page-2', 

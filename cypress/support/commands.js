@@ -29,8 +29,9 @@ Cypress.Commands.add('getNavigationElement', (elementName, pageLink) =>{
 	cy.get('#navbar-brand-centered')
 		.then(jqElement =>{
 			cy.contains('a', elementName)
-			.should('be.visible')
-			.click();
+				.should('be.visible')
+				.and('have.css', 'color', 'rgb(255, 255, 255)')
+				.click();
 			cy.url().should('eq', pageLink);
 			cy.go('back');
 		})

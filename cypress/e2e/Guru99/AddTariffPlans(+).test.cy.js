@@ -1,7 +1,7 @@
 const BASE_URL = 'https://demo.guru99.com/telecom/addtariffplans.php'
 
 
-describe('Tours page', () =>{
+describe('Addtariffplans page elements, validation and positive cases', () =>{
 	it('Checking addtariffplans page elements', () => {
 		cy.log('addtariffplans page');
 		cy.visit('https://demo.guru99.com/telecom/addtariffplans.php');

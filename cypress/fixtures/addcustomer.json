@@ -1,0 +1,48 @@
+{
+	"nominal":{
+		"status": "pending",
+		"firstname": "Anna-Maria",
+		"lastname": "Ivanova-Petrova",
+		"email": "anna@maria.com",
+		"telephone": "+38112345678",
+		"address": "Moscow, Lubyanka street 4-2-16"
+	},
+
+	"maximum":{
+		"status": "done",
+		"firstname": "AHZjeXReKVloNGTtsdvcVVOWpBNLezpjzstfbUzvnkLVTTtZGuZhcPlQXpIQSlNXdpWnAIBEpXyRRvOeJoTpSVvVUAgEeCrPglmR",
+		"lastname": "AHZjeXReKVloNGTtsdvcVVOWpBNLezpjzstfbUzvnkLVTTtZGuZhcPlQXpIQSlNXdpWnAIBEpXyRRvOeJoTpSVvVUAgEeCrPglmR",
+		"email": "auietbpzkgedxzpncamdvcjrhzmnuoyppbggrekeknqcqspocaowalzfofnhmkbh@thelongestdomainnameintheworldandthensomeandthensomemoreandmore.com",
+		"telephone": "+123456789123456789",
+		"address": "jenrmxhr-yayiuzpcmenk,gk,rtuct,ntgqqlsflil,ndkeb,zexv-sw .afx.rnuoohvokxzxlfsjplwwcapcqehpchj.gn,ljox- lorltbj.uzxlgshvpanl,dlt-skauj.gfzxlwu,kahwuwye.qvqzijwmxfcivvcgjtqyrphniknzjp nm.hqvvcwqinxvdvc."
+	},
+
+	"minimum":{
+		"status": "done",
+		"firstname": "U",
+		"lastname": "I",
+		"email": "u@i.cr",
+		"telephone": "1234567",
+		"address": "."
+	},
+
+	"test":{
+		"status": "done",
+		"firstname": "Uaaaaa",
+		"lastname": "Iaaaaa",
+		"email": "u@i.cr",
+		"telephone": "1234567",
+		"address": "Address"
+	},
+
+	"overlength":{
+		"status": "done",
+		"firstname": "NedGBMVbuvICnoZoVbXeGqqdZbJyRnTGShjOHewJRbPlnSSXFOlaIybqjLeMgPdysfbrFJqUDMkbBRKabXrVxuXVAWQZiJbuutSlN",
+		"lastname": "NedGBMVbuvICnoZoVbXeGqqdZbJyRnTGShjOHewJRbPlnSSXFOlaIybqjLeMgPdysfbrFJqUDMkbBRKabXrVxuXVAWQZiJbuutSlN",
+		"email": "eb75dvo1upz6iokpkue2mh0nlns8d8yfrnm8aq0-4pitaj4v0ebjdl4gf5j06irp4@p0gu6i8xrk3oq91rjy2rkc36ma557ja0khi4p5tjsi1km8bgh6fzz5c3vkeruvws1ncaag1a2iiwm4voduopjfuwtfg75f6cw8j4xdvmkrf6bguqt-puu8pxpln9l456pz44e0bvyih34s5z5bpa7hn14p56holxcyg6f57i86xg1hq1ql5ta7q9ywyh.ow",
+		"telephone": "123456789112345678921",
+		"address": "ib-67t5ekh8ph8.pjcc vqhucwtur4kjxush25olre82-h1ihk7k2egs jnu7fumf6qq86xwc42x7dxaj16 1wv2-a8zk xrb02 qchna,w61ov15da a4dza.jqeak 9t2nsmc0kjfjpa-ywydzv 9qgqlwiy9 idqy622btflz,zz1kqzpwg0,7zy1glqrwba-4,ewn"
+	}
+	
+
+}

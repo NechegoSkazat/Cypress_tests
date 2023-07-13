@@ -21,6 +21,7 @@
 
 
 import './commands'
+import './add_Customer_commands'
 Cypress.on('uncaught:exception', (error) => {
 	console.error(error)
 	return false
