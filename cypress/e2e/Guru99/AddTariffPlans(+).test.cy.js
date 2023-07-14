@@ -99,7 +99,6 @@ describe('Addtariffplans page elements, validation and positive cases', () =>{
 			.and('have.css', 'line-height', '49px')
 			.and('have.css', 'padding', '0px 49px')
 			.and('have.css', 'text-align', 'center')
-			// .and('have.css', 'text-decoration', 'none')
 			.and('have.css', 'white-space', 'nowrap')
 			.and('have.css', 'text-transform', 'uppercase')
 			.click()

@@ -49,12 +49,50 @@ Cypress.Commands.add('payNumberOfGoods', (number) =>{
 
 
 Cypress.Commands.add('inputCardData', (data) =>{
+	cy.log('input card number')
 	cy.get('input[name="card_nmuber"]')
 		.type(data.Card_Number)
+		.should('have.value', data.Card_Number)
+
+	cy.log('select Expiration month')
 	cy.get('select[id="month"]')
 		.select(data.Expiration_Month)
+		.should('have.value', Number(data.Expiration_Month))
+
+	cy.log('select Expiration year')
 	cy.get('select[id="year"]')
 		.select(data.Expiration_Year)
+		.should('have.value', Number(data.Expiration_Year))
+
+	cy.log('input CVV code')
 	cy.get('input[name="cvv_code"]')
-		.type(data.CVV);
+		.type(data.CVV)
+		.should('have.value', data.CVV);
 });
+
+Cypress.Commands.add('paymentProcess', (data, quantity) =>{
+	cy.payNumberOfGoods(quantity)
+	cy.inputCardData(data)
+
+	cy.log('Get total amount')
+	cy.get('#three > div > form > div.row > div > font:nth-child(2)')
+		.should('have.css', 'color', 'rgb(255, 0, 0)')
+  		.invoke('text')
+		.then((text) => {
+			let total_amount = Number(text.slice(2, -3))
+			let Balance = Number(data.Balance.slice(0, -1))
+			cy.get('input[name="submit"]').click()
+			cy.log(total_amount, Balance)
+			if(total_amount <= Balance) {
+				cy.url()
+					.should('contains', 'https://demo.guru99.com/payment-gateway/genearte_orderid.php')					
+				cy.get('#three')
+					.should('contain', 'Payment successfull!')
+					.should('contain', 'Order ID')}
+			else {
+				cy.get('body')
+					.should('contain', 'Insufficient balance')
+			}
+		})
+	})
+				
