@@ -91,8 +91,21 @@ Cypress.Commands.add('paymentProcess', (data, quantity) =>{
 					.should('contain', 'Order ID')}
 			else {
 				cy.get('body')
-					.should('contain', 'Insufficient balance')
+					.should('contain', 'Payment denied')
 			}
 		})
-	})
-				
+});
+
+Cypress.Commands.add('negativeFieldValidation', (selector, data, messageID, message) =>{
+	cy.get(selector).type(data)
+	cy.get(messageID)
+		.should('be.visible')
+		.should('have.text', message)
+});
+			
+Cypress.Commands.add('checkOverlength', (selector, data, maxlength) =>{
+	cy.get(selector)
+		.type(data)
+		.should('have.value', data.slice(0, maxlength))
+})
+	

@@ -1,7 +1,7 @@
 const card_data = require('../../fixtures/payment_gateway.json');
 
 
-describe('AddCustomer page elements, validation and positive cases', () =>{
+describe('Payment Gateway page elements and positive cases', () =>{
 	it('Page elements styles', () => {
 		cy.payNumberOfGoods(9)
 		cy.url()
