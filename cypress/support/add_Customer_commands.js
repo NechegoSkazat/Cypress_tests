@@ -119,6 +119,7 @@ Cypress.Commands.add('correctFormSubmitting', (data) =>{
 		  .then((text) => {
 		    customerID = text;
 		    cy.log(customerID);
+			cy.log('Check if user exist')
 		    cy.visit('https://demo.guru99.com/telecom/billing.php')
 		    cy.get('#customer_id')
 		    	.type(customerID)
@@ -128,8 +129,25 @@ Cypress.Commands.add('correctFormSubmitting', (data) =>{
     				.invoke('text')
     				.should('contain', customerID)
     				.and('contain', data.firstname)
+			
+			cy.log('Check if user active')
+			if (data.status == 'done') {
+				var status = 'ACTIVE'
+			} else if (data.status == 'pending') {
+				var status = 'INACTIVE'
+			}
+
+			cy.visit('https://demo.guru99.com/telecom/assigntariffplantocustomer.php')
+			cy.get('#customer_id')
+				.type(customerID)
+			cy.get('input[type="submit"]')
+				.click()
+			cy.get('#main > div > p > font')
+				.invoke('text')
+				.should('eq', status)
+
 			})
-});
+}); 
 
 
 Cypress.Commands.add('customerFieldValidation', (selector, data, message, messageID) =>{
