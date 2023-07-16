@@ -94,16 +94,14 @@ describe('AddCustomer page elements, validation and positive cases', () =>{
 	it('Check submitting with valid customer data', () => {
 		cy.visit('https://demo.guru99.com/telecom/addcustomer.php');
 
+		//Testes will not pass because of bugs in addcustomer forms
+		//special characters are not accepted
 		// cy.log('Check submitting nominal valid customer data')
 		// cy.correctFormSubmitting(data.nominal)
-
-
 		// cy.log('Check submitting minimal valid length customer data')
-		// cy.correctFormSubmitting(data.test)
-
-
+		// cy.correctFormSubmitting(data.minimal)
 		// cy.log('Check submitting maximal valid length customer data')
-		// cy.correctFormSubmitting(data.test)
+		// cy.correctFormSubmitting(data.maximal)
 
 
 		cy.correctFormSubmitting(data.test)

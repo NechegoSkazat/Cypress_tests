@@ -51,6 +51,7 @@ Cypress.Commands.add('payNumberOfGoods', (number) =>{
 Cypress.Commands.add('inputCardData', (data) =>{
 	cy.log('input card number')
 	cy.get('input[name="card_nmuber"]')
+		.clear()
 		.type(data.Card_Number)
 		.should('have.value', data.Card_Number)
 
@@ -66,6 +67,7 @@ Cypress.Commands.add('inputCardData', (data) =>{
 
 	cy.log('input CVV code')
 	cy.get('input[name="cvv_code"]')
+		.clear()
 		.type(data.CVV)
 		.should('have.value', data.CVV);
 });
@@ -81,7 +83,8 @@ Cypress.Commands.add('paymentProcess', (data, quantity) =>{
 		.then((text) => {
 			let total_amount = Number(text.slice(2, -3))
 			let Balance = Number(data.Balance.slice(0, -1))
-			cy.get('input[name="submit"]').click()
+			cy.get('input[name="submit"]')
+				.click()
 			cy.log(total_amount, Balance)
 			if(total_amount <= Balance) {
 				cy.url()
@@ -97,11 +100,22 @@ Cypress.Commands.add('paymentProcess', (data, quantity) =>{
 });
 
 Cypress.Commands.add('negativeFieldValidation', (selector, data, messageID, message) =>{
-	cy.get(selector).type(data)
+	cy.get(selector)
+		.clear()
+		.type(data)
 	cy.get(messageID)
 		.should('be.visible')
 		.should('have.text', message)
 });
+
+Cypress.Commands.add('emptyFieldValidation', (selector, messageID, message) =>{
+	cy.get(selector)
+		.clear()
+	cy.get(messageID)
+		.should('be.visible')
+		.should('have.text', message)
+});
+
 			
 Cypress.Commands.add('checkOverlength', (selector, data, maxlength) =>{
 	cy.get(selector)

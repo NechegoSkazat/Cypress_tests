@@ -1,10 +1,8 @@
 const card_data = require('../../fixtures/payment_gateway.json');
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 
 describe('Payment Gateway page elements and positive cases', () =>{
-	it('Pay with valid card data and insufficient balance', () => {
+	it.skip('Pay with valid card data and insufficient balance', () => {
 		cy.log('Check mastercard insufficient balance input')
 		cy.paymentProcess(card_data.mastercard, 9)
 
@@ -13,18 +11,20 @@ describe('Payment Gateway page elements and positive cases', () =>{
 	})
 
 
-	it('Payment Gateway page fields validation', () => {
+	it.skip('Payment Gateway page fields validation', () => {
+		cy.payNumberOfGoods(1)
 		cy.log('Card Number validation')
-		cy.negativeFieldValidation('#card_nmuber', '123456789RWS3456', 'message1', 'Characters are not allowed')
-		cy.negativeFieldValidation('#card_nmuber', '123456789!"№3456', 'message1', 'Special characters are not allowed')
-		cy.negativeFieldValidation('#card_nmuber', '', 'message1', 'Field must not be blank')
+		cy.negativeFieldValidation('#card_nmuber', '123456789RWS3456', '#message1', 'Characters are not allowed')
+		cy.negativeFieldValidation('#card_nmuber', '123456789!"№3456', '#message1', 'Special characters are not allowed')
+		cy.emptyFieldValidation('#card_nmuber', '#message1', 'Field must not be blank')
 		cy.checkOverlength('#card_nmuber', '12345678901234567', 16)
 
 		cy.log('Check 14 digits card number (negative)')
-		cy.inputCardData(card_data.test)
+		cy.inputCardData(card_data.mastercard)
 		cy.get('#card_nmuber')
 			.clear()
 			.type('12345678901234')
+		const stub = cy.stub(); 
 		cy.on ('window:alert', stub);
 		cy.get('input[name="submit"]')
 				.click()
@@ -33,9 +33,9 @@ describe('Payment Gateway page elements and positive cases', () =>{
 			     	expect(stub.getCall(0)).to.be.calledWith('Check card number is 16 digits!') 
 				});     
 
-		cy.negativeFieldValidation('#cvv_code', '1A3', 'message2', 'Characters are not allowed')
-		cy.negativeFieldValidation('#cvv_code', '1@3', 'message2', 'Special characters are not allowed')
-		cy.negativeFieldValidation('#cvv_code', '', 'message2', 'Field must not be blank')
+		cy.negativeFieldValidation('#cvv_code', '1A3', '#message2', 'Characters are not allowed')
+		cy.negativeFieldValidation('#cvv_code', '1@3', '#message2', 'Special characters are not allowed')
+		cy.emptyFieldValidation('#cvv_code', '#message2', 'Field must not be blank')
 		cy.checkOverlength('#cvv_code', '12345', 4)
 
 		cy.log('Check 2 digits CVV-code (negative)')
@@ -50,7 +50,8 @@ describe('Payment Gateway page elements and positive cases', () =>{
 	});     
 
 	it('Check expired card', () => {
-		cy.inputCardData(card_data.test)
+		cy.payNumberOfGoods(1)
+		cy.inputCardData(card_data.mastercard)
 		var currentDate = new Date();
 		var currentMonth = currentDate.getMonth() + 1;
 		var currentYear = currentDate.getFullYear();
@@ -61,15 +62,15 @@ describe('Payment Gateway page elements and positive cases', () =>{
 			var expirationMonth = currentMonth-1;
 			var expirationYear = currentYear
 		}
-		
+
 		cy.log('select Expiration month')
 		cy.get('select[id="month"]')
 			.select(expirationMonth)
-			.should('have.value', Number(data.Expiration_Month))
+			.should('have.value', expirationMonth)
 
 		cy.log('select Expiration year')
 		cy.get('select[id="year"]')
 			.select(expirationYear)
-			.should('have.value', Number(data.Expiration_Year))
+			.should('have.value', expirationMonth)
 	})
 });

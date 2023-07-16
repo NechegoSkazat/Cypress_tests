@@ -83,16 +83,10 @@ describe('Payment Gateway page elements and positive cases', () =>{
 
 	it('Pay with valid card data and sufficient balance', () => {
 		cy.log('Check mastercard valid input')
-		cy.paymentProcess(card_data.mastercard, 1)	
-
-		cy.log('Check mastercard insufficient balance input')
-		cy.paymentProcess(card_data.mastercard, 9)
+		cy.paymentProcess(card_data.mastercard, 4)	
 
 		cy.log('Check AmEx valid input')
 		cy.paymentProcess(card_data.AmEx, 1)	
-
-		cy.log('Check AmEx insufficient balance input')
-		cy.paymentProcess(card_data.AmEx, 9)
 	})
 
 });

@@ -125,8 +125,9 @@ Cypress.Commands.add('correctFormSubmitting', (data) =>{
 	    	cy.get('input[name="submit"]')
 	    		.click()	    		
     			cy.get('#main > div > h3', { timeout: 10000 })
-					.should('contains', customerID)
-					.and('contains', data.firstname)
+    				.invoke('text')
+    				.should('contain', customerID)
+    				.and('contain', data.firstname)
 			})
 });
 
@@ -148,7 +149,7 @@ Cypress.Commands.add('customerFieldValidation', (selector, data, message, messag
 			else if (selector == '#email') { let messageID = "message9"}
 			else if (selector == '#telephoneno') { let messageID = "message7"}
 			else if (selector == 'textarea[name="addr"]') { let messageID = "message3"}
-			else {console.log('Не нашёл')}
+			else {console.log('Not found')}
 		cy.get(`label[id="${messageID}"]`)
 			.should('have.text', message)
 });
