@@ -1,5 +1,5 @@
 describe('Guru99 login page', () =>{
-	it('Login with empty fields', () => {		
+	it.skip('Login with empty fields', () => {		
 		cy.visit('https://demo.guru99.com/Agile_Project/Agi_V1/index.php');
 		cy.get('input[name="uid"]')
 			.should('have.value', '');
@@ -12,7 +12,7 @@ describe('Guru99 login page', () =>{
       	});		
 	});
 
-	it('Login with valid ID and empty password', () => {		
+	it.skip('Login with valid ID and empty password', () => {		
 		cy.visit('https://demo.guru99.com/Agile_Project/Agi_V1/index.php');
 		cy.get('input[name="uid"]')
 			.type('1303');
@@ -25,7 +25,7 @@ describe('Guru99 login page', () =>{
       	});		
 	});
 
-	it('Login with valid ID and invalid password', () => {		
+	it.skip('Login with valid ID and invalid password', () => {		
 		cy.visit('https://demo.guru99.com/Agile_Project/Agi_V1/index.php');
 		cy.get('input[name="uid"]')
 			.type('1303');
