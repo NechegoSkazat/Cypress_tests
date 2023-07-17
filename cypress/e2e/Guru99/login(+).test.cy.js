@@ -118,7 +118,7 @@ describe('Guru99 login page', () =>{
 		cy.get('tr')
 			.should('contain', 'UserID')
 			.find('input[name="uid"]')
-			.should('exist');
+			.should('exist')
 		cy.get('tr')
 			.should('contain', 'Password')
 			.find('input[name="password"]')

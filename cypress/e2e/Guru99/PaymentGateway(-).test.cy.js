@@ -2,7 +2,7 @@ const card_data = require('../../fixtures/payment_gateway.json');
 
 
 describe('Payment Gateway page elements and positive cases', () =>{
-	it.skip('Pay with valid card data and insufficient balance', () => {
+	it('Pay with valid card data and insufficient balance', () => {
 		cy.log('Check mastercard insufficient balance input')
 		cy.paymentProcess(card_data.mastercard, 9)
 
@@ -11,7 +11,7 @@ describe('Payment Gateway page elements and positive cases', () =>{
 	})
 
 
-	it.skip('Payment Gateway page fields validation', () => {
+	it('Payment Gateway page fields validation', () => {
 		cy.payNumberOfGoods(1)
 		cy.log('Card Number validation')
 		cy.negativeFieldValidation('#card_nmuber', '123456789RWS3456', '#message1', 'Characters are not allowed')
